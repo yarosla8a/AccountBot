@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
-import org.itstep.dao.AccountDao;
+import org.itstep.dao.AccountDAO;
 import org.itstep.model.Account;
 
 import javax.swing.JButton;
@@ -261,7 +261,7 @@ public class AccoutntUI extends JFrame {
   String firstName = tfSaveFn.getText();
   String secondName = tfSaveSn.getText();
   
-  AccountDao accDao = new AccountDao();
+  AccountDAO accDao = new AccountDAO();
   accDao.save(new Account(firstName, secondName));
   
   infoField.setText("Account "+secondName+" was saved!");
@@ -271,7 +271,7 @@ public class AccoutntUI extends JFrame {
   String firstName = tfFnGet.getText();
   String secondName = tfSnGet.getText();
   
-  AccountDao accDao = new AccountDao();
+  AccountDAO accDao = new AccountDAO();
   Account account = accDao.get(firstName, secondName);
   
   
@@ -287,7 +287,7 @@ public class AccoutntUI extends JFrame {
 	  newAccount.setEmail(tfLogin.getText());
 	  newAccount.setPassword(tfPass.getText());
 	  
-	  AccountDao accDao = new AccountDao();
+	  AccountDAO accDao = new AccountDAO();
 	  
 	  Account accFromDB = accDao.get(oldFirstName, oldSecondName);
 	  
@@ -303,7 +303,7 @@ public class AccoutntUI extends JFrame {
 	 String firstName = tfFnDel.getText();
 	  String secondName = tfSnDel.getText();
 
-	  AccountDao accDao = new AccountDao();
+	  AccountDAO accDao = new AccountDAO();
 	  accDao.delete(firstName, secondName);
 
 	  infoField.setText("Account " + secondName + " was deleted!");

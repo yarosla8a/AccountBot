@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import org.itstep.model.Account;
 
-public class AccountDao {
+public class AccountDAO {
 
 	public void save(Account account) {
 		Connection connection = null;
@@ -15,7 +15,7 @@ public class AccountDao {
 		String sql = "INSERT INTO accounts(first_name, second_name, login, password) VALUES(?, ?, ?, ?)";
 
 		try {
-			connection = DBConnection.getConnection();
+			connection = ConnectionToDB.getConnection();
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, account.getFirstName());
 			statement.setString(2, account.getSecondName());
@@ -48,7 +48,7 @@ public class AccountDao {
 		String sql = "SELECT * FROM accounts WHERE first_name=? AND second_name=?";
 
 		try {
-			connection = DBConnection.getConnection();
+			connection = ConnectionToDB.getConnection();
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, firstName);
 			statement.setString(2, secondName);
@@ -87,7 +87,7 @@ public class AccountDao {
 		String sql = "UPDATE accounts SET first_name=?, second_name=?, login=?, password=? WHERE first_name=? AND second_name=?";
 
 		try {
-			connection = DBConnection.getConnection();
+			connection = ConnectionToDB.getConnection();
 			statement = connection.prepareStatement(sql);
 			statement.setString(5, firstName);
 			statement.setString(6, secondName);
@@ -121,7 +121,7 @@ public class AccountDao {
 		String sql = "DELETE FROM accounts WHERE first_name=? AND second_name=?";
 
 		try {
-			connection = DBConnection.getConnection();
+			connection = ConnectionToDB.getConnection();
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, firstName);
 			statement.setString(2, secondName);

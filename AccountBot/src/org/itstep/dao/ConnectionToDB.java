@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class ConnectionToDB {
 
-	private static final String URL = "jdbc:postgresql://localhost:5432/ST21test";
+	private static final String URL = "jdbc:postgresql://localhost:5432/amazon";
 	private static final String USER_NAME = "postgres";
 	private static final String USER_PASSWORD = "ke6a1999";
 
